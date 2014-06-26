@@ -1,13 +1,14 @@
 $icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
 
-$light-blue: #4285f4;
-$accent-blue: #73b7ff;
+$burgundy: #6e2324;
 
 // bower:scss
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
-@import '_controls.scss';
+@import header;
+@import rocket;
+@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 .browsehappy {
     margin: 0.2em 0;
@@ -16,83 +17,103 @@ $accent-blue: #73b7ff;
     padding: 0.2em 0;
 }
 
-/* Space out content a bit */
-body {
-    padding-top: 20px;
-    padding-bottom: 20px;
+body, html {
+    width: 100%;
+    height: 100%;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-    padding-left: 15px;
-    padding-right: 15px;
+.hero {
+    height: 100%;
+    background-color: $burgundy;
+    color: #fff;
+    min-height: 600px;
+    padding-top: 100px;
 }
 
-/* Custom page header */
+.main-logo {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    width: 200px;
+    height: 200px;
+    position: relative;
+    
+    .logo {
+        width: 200px;
+        position: absolute;
+    }
+
+    .rocket {
+        height: 300px;
+        position: absolute;
+        left: 75px;
+        top: -50px;
+    }
+}
+
 .header {
-    border-bottom: 1px solid #e5e5e5;
-
-    /* Make the masthead heading the same height as the navigation */
-    h3 {
-        margin-top: 0;
-        margin-bottom: 0;
-        line-height: 40px;
-        padding-bottom: 19px;
-    }
-}
-
-/* Custom page footer */
-.footer {
-    padding-top: 19px;
-    color: #777;
-    border-top: 1px solid #e5e5e5;
-}
-
-.container-narrow > hr {
-    margin: 30px 0;
-}
-
-/* Main marketing message and sign up button */
-.jumbotron {
     text-align: center;
-    border-bottom: 1px solid #e5e5e5;
-    .btn {
-        font-size: 21px;
-        padding: 14px 24px;
+    position: fixed;
+    z-index: 3;
+    width: 100%;
+    background-color: $burgundy;
+}
+
+.countdown {
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    font-family: 'Inconsolata', monospace;
+    font-size: 30px;
+
+    #clock {
+        font-size: 60px;
     }
 }
 
-/* Supporting marketing content */
-.marketing {
-    margin: 40px 0;
-    p + h4 {
-        margin-top: 28px;
+.section-title {
+    text-align: center;
+    color: $burgundy;
+    padding-top: 10px;
+    margin-bottom: 60px;
+    
+    h2 {
+        border-bottom: 2px solid $burgundy;
+        display: inline;
+        padding-bottom: 10px;
     }
 }
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-    .container {
-        max-width: 730px;
-    }
-
-    /* Remove the padding we set earlier */
-    .header,
-    .marketing,
-    .footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    /* Space out the masthead */
-    .header {
-        margin-bottom: 30px;
-    }
-
-    /* Remove the bottom border on the jumbotron for visual effect */
-    .jumbotron {
-        border-bottom: 0;
-    }
+.sponsor-msg {
+    text-align: center;
 }
+
+
+// Trying to do cool highlight on hover with svgs
+
+/* .sponsor-logo { */
+/*     a.bloomberg path, a.bloomberg line { */
+/*         -webkit-transition: fill .4s ease; */
+/* 	-moz-transition: fill .4s ease; */
+/* 	-o-transition: fill .4s ease; */
+/* 	transition: fill .4s ease; */
+/*     } */
+    
+/*     a.bloomberg { */
+/*         path { */
+/*             fill: grey; */
+/*         } */
+/*         line { */
+/*             stroke: grey; */
+/*         } */
+
+/*         &:hover { */
+/*            path { */
+/*                fill: #010101; */
+/*            } */
+/*            line { */
+/*                stroke: #010101; */
+/*            }  */
+/*         } */
+/*     } */
+/* } */

@@ -1,9 +1,8 @@
 {
-  "name": "video-annotator",
+  "name": "launch-hack",
   "version": "0.0.0",
   "dependencies": {
     "express": "^4.4.3",
-    "mongoose": "^3.8.12",
     "ejs": "^1.0.0",
     "body-parser": "^1.4.3"
   },

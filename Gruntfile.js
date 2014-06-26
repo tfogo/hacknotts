@@ -18,8 +18,7 @@ module.exports = function (grunt) {
     // Configurable paths
     var config = {
         app: 'app',
-        dist: 'dist',
-        views: 'app/views'
+        dist: 'dist'
     };
 
     // Define the configuration for all the tasks
@@ -84,10 +83,21 @@ module.exports = function (grunt) {
                     livereload: true
                 },
                 files: [
-                    '<%= config.app %>/{,*/}*.ejs',
+                    '<%= config.app %>/{,*/}*.html',
                     '.tmp/styles/{,*/}*.css',
                     '<%= config.app %>/images/{,*/}*'
                 ]
+            },
+            express: {
+                files: [
+                    'server.js',
+                    'lib/{,*//*}*.{js,json}'
+                ],
+                tasks: ['express:dev'],
+                options: {
+                    livereload: true,
+                    nospawn: true //Without this option specified express won't be reloaded
+                }
             }
         },
         
@@ -165,8 +175,8 @@ module.exports = function (grunt) {
         // Automatically inject Bower components into the HTML file
         bowerInstall: {
             app: {
-                src: ['<%= config.views %>/index.ejs'],
-                exclude: ['<%= config.app %>/bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js']
+                src: ['<%= config.app %>/index.html'],
+                exclude: ['bower_components/bootstrap-sass-official/vendor/assets/javascripts/bootstrap.js']
             },
             sass: {
                 src: ['<%= config.app %>/styles/{,*/}*.{scss,sass}']
@@ -195,7 +205,7 @@ module.exports = function (grunt) {
             options: {
                 dest: '<%= config.dist %>'
             },
-            html: '<%= config.views %>/index.ejs'
+            html: '<%= config.app %>/index.html'
         },
 
         // Performs rewrites based on rev and the useminPrepare configuration
@@ -203,7 +213,7 @@ module.exports = function (grunt) {
             options: {
                 assetsDirs: ['<%= config.dist %>', '<%= config.dist %>/images']
             },
-            html: ['<%= config.dist %>/{,*/}*.ejs'],
+            html: ['<%= config.dist %>/{,*/}*.html'],
             css: ['<%= config.dist %>/styles/{,*/}*.css']
         },
 
@@ -296,7 +306,7 @@ module.exports = function (grunt) {
                     expand: true,
                     dot: true,
                     cwd: '.',
-                    src: ['<%= config.app %>/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*'],
+                    src: ['bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/*.*'],
                     dest: '<%= config.dist %>'
                 }]
             },
