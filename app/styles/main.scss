@@ -6,8 +6,8 @@ $burgundy: #6e2324;
 @import "../bower_components/bootstrap-sass-official/vendor/assets/stylesheets/bootstrap.scss";
 // endbower
 
-@import header;
-@import rocket;
+@import "header";
+@import "rocket";
 @import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700);
 
 .browsehappy {
@@ -15,6 +15,14 @@ $burgundy: #6e2324;
     background: #ccc;
     color: #000;
     padding: 0.2em 0;
+}
+
+.background {
+    text-align: center;
+    margin-bottom: 50px;
+    img {
+        width: 100%;
+    }
 }
 
 body, html {
